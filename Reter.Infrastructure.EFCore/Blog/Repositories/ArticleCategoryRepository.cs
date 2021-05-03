@@ -14,7 +14,7 @@ namespace Reter.Infrastructure.EFCore.Blog.Repositories
             _reterDbContext = reterDbContext;
         }
 
-        public void Create(ArticleCategory entity)
+        public void Add(ArticleCategory entity)
         {
             _reterDbContext.ArticleCategories.Add(entity);
             _reterDbContext.SaveChanges();
@@ -22,7 +22,7 @@ namespace Reter.Infrastructure.EFCore.Blog.Repositories
 
         public List<ArticleCategory> GetAll()
         {
-            return _reterDbContext.ArticleCategories.ToList();
+            return _reterDbContext.ArticleCategories.OrderByDescending(x=>x.CreationTime).ToList();
         }
     }
 }

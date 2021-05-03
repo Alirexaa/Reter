@@ -15,7 +15,7 @@ namespace Reter.Application.Blog.ArticleCategory
             _articleCategoryRepository = articleCategoryRepository;
         }
 
-        public List<ArticleCategoryViewModel> ArticleCategoryViewModels()
+        public List<ArticleCategoryViewModel> List()
         {
             var articleCategories = _articleCategoryRepository.GetAll();
             var result = new List<ArticleCategoryViewModel>();
@@ -34,6 +34,14 @@ namespace Reter.Application.Blog.ArticleCategory
 
 
             return result;
+        }
+
+        public void Create(CreateArticleCategory command)
+        {
+            var articleCategory =
+                new Domain.Blog.ArticleCategoryAgg.ArticleCategory(command.Title, command.Description);
+            _articleCategoryRepository.Add(articleCategory);
+
         }
     }
 }

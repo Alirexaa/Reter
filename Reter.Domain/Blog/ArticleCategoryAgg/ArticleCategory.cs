@@ -16,6 +16,7 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
             Title = title;
             Description = description;
             IsDeleted = false;
+            CreationTime = DateTime.Now;
         }
     }
 }

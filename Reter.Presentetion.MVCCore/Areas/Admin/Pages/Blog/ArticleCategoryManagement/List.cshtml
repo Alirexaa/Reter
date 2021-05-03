@@ -1,5 +1,54 @@
 ﻿@page
 @model Reter.Presentation.MVCCore.Areas.Admin.Pages.Blog.ArticleCategoryManagement.ListModel
 @{
-
+    
+    var id = Model.ArticleCategories.Count;
 }
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="float-left">Article Category List</h3>
+        <div class="float-right">
+            <a class="btn btn-success" asp-area="Admin" asp-page="/Blog/ArticleCategoryManagement/Create">Create New</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead >
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>CreationTime</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var articleCategory in Model.ArticleCategories)
+            {
+                <tr>
+
+                    <th>@(id--)</th>
+                    <th>@articleCategory.Title</th>
+                    <th>@articleCategory.Description</th>
+                    <th>
+                        @if (@articleCategory.IsDeleted)
+                        {
+                            <i class="fa fa-2x fa-close text-danger"></i>
+                        }
+                        else
+                        {
+                            <i class="fa fa-2x fa-check text-success"></i>
+                        }
+                    </th>
+                    <th>@articleCategory.CreationTime</th>
+
+                </tr>
+                
+            }
+
+            </tbody>
+        </table>
+    </div>
+</div>

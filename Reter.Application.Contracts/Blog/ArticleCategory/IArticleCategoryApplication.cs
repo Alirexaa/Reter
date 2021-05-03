@@ -4,6 +4,7 @@ namespace Reter.Application.Contracts.Blog.ArticleCategory
 {
     public interface IArticleCategoryApplication
     {
-        List<ArticleCategoryViewModel> ArticleCategoryViewModels();
+        List<ArticleCategoryViewModel> List();
+        void Create(CreateArticleCategory command);
     }
 }

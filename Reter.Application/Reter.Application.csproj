@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Reter.Application.Contracts\Reter.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Reter.Domain\Reter.Domain.csproj" />
   </ItemGroup>
 
 </Project>

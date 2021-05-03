@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Reter.Application.Contracts\Reter.Application.Contracts.csproj" />
     <ProjectReference Include="..\Reter.Domain\Reter.Domain.csproj" />
+    <ProjectReference Include="..\Reter.Infrastructure.Core\Reter.Infrastructure.Core.csproj" />
   </ItemGroup>
 
 </Project>

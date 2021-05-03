@@ -3,10 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Reter.Infrastructure.Core;
+
 
 namespace Reter.Presentation.MVCCore
 {
@@ -23,6 +21,8 @@ namespace Reter.Presentation.MVCCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            Bootstrapper.Config(services,Configuration.GetConnectionString("ReterDB"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +46,7 @@ namespace Reter.Presentation.MVCCore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

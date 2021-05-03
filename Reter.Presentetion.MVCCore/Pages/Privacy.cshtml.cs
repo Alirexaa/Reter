@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Reter.Presentetion.MVCCore.Pages
+namespace Reter.Presentation.MVCCore.Pages
 {
     public class PrivacyModel : PageModel
     {

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Reter.Presentetion.MVCCore
+namespace Reter.Presentation.MVCCore
 {
     public class Startup
     {

@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reter.Domain", "Reter.Domain\Reter.Domain.csproj", "{669AD224-B201-4274-ACE2-1F4F256D8DC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reter.Domain", "Reter.Domain\Reter.Domain.csproj", "{669AD224-B201-4274-ACE2-1F4F256D8DC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reter.Application", "Reter.Application\Reter.Application.csproj", "{B2F8A5EF-EB65-4642-B4A5-1320321D9E8C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reter.Application", "Reter.Application\Reter.Application.csproj", "{B2F8A5EF-EB65-4642-B4A5-1320321D9E8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reter.Application.Contracts", "Reter.Application.Contracts\Reter.Application.Contracts.csproj", "{9A34E76D-E349-4B29-9E7D-B465A8B587F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reter.Application.Contracts", "Reter.Application.Contracts\Reter.Application.Contracts.csproj", "{9A34E76D-E349-4B29-9E7D-B465A8B587F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reter.Infrastructure.Core", "Reter.Infrastructure.Core\Reter.Infrastructure.Core.csproj", "{6999D52F-199E-4001-9ABD-C2096C3B2F45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reter.Infrastructure.Core", "Reter.Infrastructure.Core\Reter.Infrastructure.Core.csproj", "{6999D52F-199E-4001-9ABD-C2096C3B2F45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reter.Infrastructure.EFCore", "Reter.Infrastructure.EFCore\Reter.Infrastructure.EFCore.csproj", "{012FFBCF-E522-4FDC-8C5A-614011630143}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reter.Infrastructure.EFCore", "Reter.Infrastructure.EFCore\Reter.Infrastructure.EFCore.csproj", "{012FFBCF-E522-4FDC-8C5A-614011630143}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reter.Presentetion.MVCCore", "Reter.Presentetion.MVCCore\Reter.Presentetion.MVCCore.csproj", "{36AB8B64-D5EB-4EF9-95EC-65AFB3453A18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reter.Presentation.MVCCore", "Reter.Presentetion.MVCCore\Reter.Presentation.MVCCore.csproj", "{36AB8B64-D5EB-4EF9-95EC-65AFB3453A18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

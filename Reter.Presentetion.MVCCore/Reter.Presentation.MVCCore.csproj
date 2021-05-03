@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Reter.Application.Contracts\Reter.Application.Contracts.csproj" />
     <ProjectReference Include="..\Reter.Domain\Reter.Domain.csproj" />
     <ProjectReference Include="..\Reter.Infrastructure.Core\Reter.Infrastructure.Core.csproj" />

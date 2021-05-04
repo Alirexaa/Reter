@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using Reter.Domain.Blog.ArticleAgg;
 using Reter.Domain.Blog.ArticleCategoryAgg.Services;
 
 namespace Reter.Domain.Blog.ArticleCategoryAgg
@@ -10,7 +13,7 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
         public string Description { get; private set; }
         public bool IsDeleted { get; private set; }
         public DateTime CreationTime { get; private set; }
-
+        public ICollection<Article> Articles { get; private set; }
         protected ArticleCategory()
         {
             
@@ -26,6 +29,8 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
             Description = description;
             IsDeleted = false;
             CreationTime = DateTime.Now;
+            Articles = new List<Article>();
+
         }
 
         public void Edit(string title,string description)

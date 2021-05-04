@@ -41,5 +41,15 @@ namespace Reter.Domain.Blog.ArticleAgg
             Image = image;
             ArticleCategoryId = articleCategoryId;
         }
+
+        public void Activate()
+        {
+            IsDeleted = false;
+        }
+
+        public void Delete()
+        {
+            IsDeleted = true;
+        }
     }
 }

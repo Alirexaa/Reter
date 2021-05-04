@@ -23,5 +23,16 @@ namespace Reter.Presentation.MVCCore.Areas.Admin.Pages.Blog.ArticleManagement
         {
             Articles = _articleApplication.GetList();
         }
+
+        public RedirectToPageResult OnPostActivate(string id)
+        {
+            _articleApplication.Activate(id);
+            return RedirectToPage("./List");
+        }
+        public RedirectToPageResult OnPostRemove(string id)
+        {
+            _articleApplication.Remove(id);
+            return RedirectToPage("./List");
+        }
     }
 }

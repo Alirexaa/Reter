@@ -9,5 +9,7 @@ namespace Reter.Application.Contracts.Blog.Article
         void Create(CreateArticle command);
         void Edit(EditArticle command);
         EditArticle Get(string id);
+        void Remove(string id);
+        void Activate(string id);
     }
 }

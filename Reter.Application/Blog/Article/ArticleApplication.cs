@@ -48,5 +48,20 @@ namespace Reter.Application.Blog.Article
                 ShortDescription = article.ShortDescription,
             };
         }
+
+        public void Remove(string id)
+        {
+            var article = _articleRepository.Get(id);
+            article.Delete();
+            _articleRepository.Save();
+        }
+
+        public void Activate(string id)
+        {
+
+            var article = _articleRepository.Get(id);
+            article.Activate();
+            _articleRepository.Save();
+        }
     }
 }

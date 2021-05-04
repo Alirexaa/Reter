@@ -62,5 +62,19 @@ namespace Reter.Application.Blog.ArticleCategory
                 Title = articleCategory.Title,
             };
         }
+
+        public void Remove(string id)
+        {
+           var articleCategory =  _articleCategoryRepository.Get(id);
+           articleCategory.Remove();
+           _articleCategoryRepository.Save();
+        }
+
+        public void Activate(string id)
+        {
+          var articleCategory=  _articleCategoryRepository.Get(id);
+          articleCategory.Activate();
+          _articleCategoryRepository.Save(); 
+        }
     }
 }

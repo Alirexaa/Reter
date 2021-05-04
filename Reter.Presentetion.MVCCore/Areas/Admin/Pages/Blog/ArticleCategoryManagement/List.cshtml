@@ -1,7 +1,6 @@
 ﻿@page
 @model Reter.Presentation.MVCCore.Areas.Admin.Pages.Blog.ArticleCategoryManagement.ListModel
 @{
-    
     var id = Model.ArticleCategories.Count;
 }
 
@@ -22,7 +21,7 @@
                 <th>Status</th>
                 <th>CreationTime</th>
                 <th>Operations</th>
-              
+
             </tr>
             </thead>
             <tbody>
@@ -47,12 +46,24 @@
                     <th>@articleCategory.CreationTime</th>
                     <th>
                         <a class="btn btn-outline-warning" asp-area="Admin" asp-page="./Edit" asp-route-id="@articleCategory.Id">Edit</a>
+                        @if (articleCategory.IsDeleted)
+                        {
+                            <form method="post" asp-page-handler="Activate" class="float-left mx-2">
+                                <button class="btn btn-outline-success">Active</button>
+                                <input name="Id" type="hidden" value="@articleCategory.Id"/>
+                            </form>
+                        }
+                        else
+                        {
+                            <form method="post" asp-page-handler="Remove" class="float-left mx-2">
+                                <button class="btn btn-outline-danger ">Delete</button>
+                                <input name="Id" type="hidden" value="@articleCategory.Id"/>
+                            </form>
+                        }
                     </th>
-                     
-                    
+
 
                 </tr>
-                
             }
 
             </tbody>

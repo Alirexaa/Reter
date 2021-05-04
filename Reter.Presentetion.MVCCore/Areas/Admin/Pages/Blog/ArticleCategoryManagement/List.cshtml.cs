@@ -1,22 +1,36 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Reter.Application.Contracts.Blog.ArticleCategory;
 using Reter.Domain.Blog.ArticleCategoryAgg;
 
 namespace Reter.Presentation.MVCCore.Areas.Admin.Pages.Blog.ArticleCategoryManagement
 {
     public class ListModel : PageModel
     {
-        public List<ArticleCategory> ArticleCategories { get; set; }
-        private readonly IArticleCategoryRepository _articleCategoryRepository;
+        public List<ArticleCategoryViewModel> ArticleCategories { get; set; }
+        private readonly IArticleCategoryApplication _articleCategoryApplication;
 
-        public ListModel(IArticleCategoryRepository articleCategoryRepository)
+        public ListModel(IArticleCategoryApplication articleCategoryApplication)
         {
-            _articleCategoryRepository = articleCategoryRepository;
+            _articleCategoryApplication= articleCategoryApplication;
         }
 
         public void OnGet()
         {
-            ArticleCategories = _articleCategoryRepository.GetAll();
+            ArticleCategories = _articleCategoryApplication.List();
+        }
+
+        public RedirectToPageResult OnPostRemove(string id)
+        {
+            _articleCategoryApplication.Remove(id);
+            return RedirectToPage("./list");
+        }
+
+        public RedirectToPageResult OnPostActivate(string id)
+        {
+            _articleCategoryApplication.Activate(id);
+            return RedirectToPage("./list");
         }
     }
 }

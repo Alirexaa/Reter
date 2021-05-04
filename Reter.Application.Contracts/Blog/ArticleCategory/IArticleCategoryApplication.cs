@@ -9,6 +9,8 @@ namespace Reter.Application.Contracts.Blog.ArticleCategory
         void Add(CreateArticleCategory command);
         void Edit(EditArticleCategory command);
         EditArticleCategory Get(string id);
+        void Remove(string id);
+        void Activate(string id);
 
 
     }

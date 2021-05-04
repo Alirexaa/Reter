@@ -2,6 +2,7 @@
 using System.Globalization;
 using Reter.Application.Contracts.Blog;
 using Reter.Application.Contracts.Blog.ArticleCategory;
+using Reter.Application.Contracts.Blog.ArticleCategory.Commands;
 using Reter.Domain.Blog.ArticleCategoryAgg;
 
 namespace Reter.Application.Blog.ArticleCategory
@@ -36,12 +37,30 @@ namespace Reter.Application.Blog.ArticleCategory
             return result;
         }
 
-        public void Create(CreateArticleCategory command)
+        public void Add(CreateArticleCategory command)
         {
             var articleCategory =
                 new Domain.Blog.ArticleCategoryAgg.ArticleCategory(command.Title, command.Description);
             _articleCategoryRepository.Add(articleCategory);
 
+        }
+
+        public void Edit(EditArticleCategory command)
+        {
+            var articleCategory = _articleCategoryRepository.Get(command.Id);
+            articleCategory.Edit(command.Title,command.Description);
+            _articleCategoryRepository.Save();
+        }
+
+        public EditArticleCategory Get(string id)
+        {
+            var articleCategory = _articleCategoryRepository.Get(id);
+            return new EditArticleCategory()
+            {
+                Id = articleCategory.Id,
+                Description = articleCategory.Description,
+                Title = articleCategory.Title,
+            };
         }
     }
 }

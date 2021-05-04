@@ -1,4 +1,4 @@
-﻿namespace Reter.Application.Contracts.Blog.ArticleCategory
+﻿namespace Reter.Application.Contracts.Blog.ArticleCategory.Commands
 {
     public class CreateArticleCategory
     {

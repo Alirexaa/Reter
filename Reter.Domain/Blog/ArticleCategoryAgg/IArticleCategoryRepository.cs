@@ -6,5 +6,8 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
     {
         void Add(ArticleCategory entity);
         List<ArticleCategory> GetAll();
+        ArticleCategory Get(string id);
+        void Save();
+
     }
 }

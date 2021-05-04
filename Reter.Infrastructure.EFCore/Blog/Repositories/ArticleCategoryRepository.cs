@@ -17,12 +17,22 @@ namespace Reter.Infrastructure.EFCore.Blog.Repositories
         public void Add(ArticleCategory entity)
         {
             _reterDbContext.ArticleCategories.Add(entity);
-            _reterDbContext.SaveChanges();
+            Save();
         }
 
         public List<ArticleCategory> GetAll()
         {
             return _reterDbContext.ArticleCategories.OrderByDescending(x=>x.CreationTime).ToList();
+        }
+
+        public ArticleCategory Get(string id)
+        {
+            return _reterDbContext.ArticleCategories.FirstOrDefault(x => x.Id==id);
+        }
+
+        public void Save()
+        {
+            _reterDbContext.SaveChanges();
         }
     }
 }

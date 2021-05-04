@@ -1,31 +1,32 @@
-﻿@page
-@model Reter.Presentation.MVCCore.Areas.Admin.Pages.Blog.ArticleCategoryManagement.CreateModel
+﻿@page "{id}"
+@model Reter.Presentation.MVCCore.Areas.Admin.Pages.Blog.ArticleCategoryManagement.EditModel
 @{
 }
 
 <div class="card">
     <div class="card-header">
-        <h2>Add New Article Category</h2>
+        <h2>Edit Article Category</h2>
     </div>
 
     <div class="card-header">
         <div class="col-md-12">
             <form method="post">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="ArticleCategory.Id"/>
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label for="Title" class="control-label">Title:</label>
-                        <input class="form-control" name="Title" id="Title" />
+                        <label asp-for="ArticleCategory.Title" class="control-label">Title:</label>
+                        <input asp-for="ArticleCategory.Title" class="form-control"   />
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
                     <div class="form-group">
-                        <label for="Description" class="control-label">Description:</label>
-                        <input class="form-control" name="Description" id="Description" />
+                        <label asp-for="ArticleCategory.Description" class="control-label">Description:</label>
+                        <input asp-for="ArticleCategory.Description" class="form-control" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Add" class="btn btn-success" />
+                    <input type="submit" value="Edit" class="btn btn-warning" />
                     <a class="btn btn-dark" asp-page="./List" asp-area="Admin">Back To List</a>
                 </div>
             </form>

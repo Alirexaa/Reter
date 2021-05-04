@@ -18,5 +18,11 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
             IsDeleted = false;
             CreationTime = DateTime.Now;
         }
+
+        public void Edit(string title,string description)
+        {
+            Title = title;
+            Description = description;
+        }
     }
 }

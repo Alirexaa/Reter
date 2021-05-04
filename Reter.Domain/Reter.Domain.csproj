@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Reter.Application.Contracts\Reter.Application.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,11 +1,13 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Reter.Application.Blog.Article;
 using Reter.Application.Contracts.Blog.ArticleCategory;
 using Reter.Domain.Blog.ArticleCategoryAgg;
 using Reter.Infrastructure.EFCore.Blog.Repositories;
 using Reter.Infrastructure.EFCore.DbContexts;
 using Reter.Application.Blog.ArticleCategory;
+using Reter.Application.Contracts.Blog.Article;
 using Reter.Domain.Blog.ArticleCategoryAgg.Services;
 
 namespace Reter.Infrastructure.Core
@@ -19,6 +21,9 @@ namespace Reter.Infrastructure.Core
             services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
             services.AddDbContext<ReterDbContext>(opt => opt.UseSqlServer(connectionString));
             services.AddScoped<IArticleCategoryValidatorService, ArticleCategoryValidatorService>();
+
+            services.AddTransient<IArticleApplication, ArticleApplication>();
+            services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
         }
     }
     

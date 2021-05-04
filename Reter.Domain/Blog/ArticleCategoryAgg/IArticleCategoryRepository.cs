@@ -8,6 +8,6 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
         List<ArticleCategory> GetAll();
         ArticleCategory Get(string id);
         void Save();
-
+        bool Exists(string title);
     }
 }

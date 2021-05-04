@@ -4,17 +4,22 @@ using Reter.Application.Contracts.Blog;
 using Reter.Application.Contracts.Blog.ArticleCategory;
 using Reter.Application.Contracts.Blog.ArticleCategory.Commands;
 using Reter.Domain.Blog.ArticleCategoryAgg;
+using Reter.Domain.Blog.ArticleCategoryAgg.Services;
 
 namespace Reter.Application.Blog.ArticleCategory
 {
     public class ArticleCategoryApplication:IArticleCategoryApplication
     {
         private readonly IArticleCategoryRepository _articleCategoryRepository;
+        private readonly IArticleCategoryValidatorService _articleCategoryValidatorService;
 
-        public ArticleCategoryApplication(IArticleCategoryRepository articleCategoryRepository)
+        public ArticleCategoryApplication(IArticleCategoryRepository articleCategoryRepository, IArticleCategoryValidatorService articleCategoryValidatorService)
         {
             _articleCategoryRepository = articleCategoryRepository;
+            _articleCategoryValidatorService = articleCategoryValidatorService;
         }
+
+        
 
         public List<ArticleCategoryViewModel> List()
         {
@@ -40,7 +45,7 @@ namespace Reter.Application.Blog.ArticleCategory
         public void Add(CreateArticleCategory command)
         {
             var articleCategory =
-                new Domain.Blog.ArticleCategoryAgg.ArticleCategory(command.Title, command.Description);
+                new Domain.Blog.ArticleCategoryAgg.ArticleCategory(command.Title, command.Description,_articleCategoryValidatorService );
             _articleCategoryRepository.Add(articleCategory);
 
         }

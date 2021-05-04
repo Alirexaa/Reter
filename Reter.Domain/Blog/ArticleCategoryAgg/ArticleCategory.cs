@@ -1,4 +1,5 @@
 ﻿using System;
+using Reter.Domain.Blog.ArticleCategoryAgg.Services;
 
 namespace Reter.Domain.Blog.ArticleCategoryAgg
 {
@@ -10,8 +11,16 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
         public bool IsDeleted { get; private set; }
         public DateTime CreationTime { get; private set; }
 
-        public ArticleCategory(string title, string description)
+        protected ArticleCategory()
         {
+            
+        }
+        public ArticleCategory(string title, string description,IArticleCategoryValidatorService service)
+        {
+            GuardAgainstEmptyTitle(title);
+            service.CheckThatThisRecordAlreadyExists(title);
+            GuardAgainstEmptyDescription(description);
+
             Id = Guid.NewGuid().ToString();
             Title = title;
             Description = description;
@@ -21,6 +30,8 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
 
         public void Edit(string title,string description)
         {
+            GuardAgainstEmptyTitle(title);
+            GuardAgainstEmptyDescription(description);
             Title = title;
             Description = description;
         }
@@ -33,6 +44,17 @@ namespace Reter.Domain.Blog.ArticleCategoryAgg
         public void Activate()
         {
             IsDeleted = false;
+        }
+
+        public void GuardAgainstEmptyTitle(string title)
+        {
+            if (string.IsNullOrEmpty(title))
+                throw new ArgumentNullException("title is null or empty");
+        }
+        public void GuardAgainstEmptyDescription(string description)
+        {
+            if (string.IsNullOrEmpty(description))
+                throw new ArgumentNullException($"{nameof(description)} is null or empty");
         }
     }
 }

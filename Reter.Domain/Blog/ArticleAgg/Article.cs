@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 using Reter.Domain.Blog.ArticleCategoryAgg;
 
 namespace Reter.Domain.Blog.ArticleAgg
@@ -30,6 +31,15 @@ namespace Reter.Domain.Blog.ArticleAgg
             ArticleCategoryId = articleCategoryId;
             IsDeleted = false;
             CreationTime = DateTime.Now;
+        }
+
+        public void Edit(string title,string shortDescription,string content, string image,string articleCategoryId)
+        {
+            Title = title;
+            ShortDescription = shortDescription;
+            Content = content;
+            Image = image;
+            ArticleCategoryId = articleCategoryId;
         }
     }
 }

@@ -38,6 +38,11 @@ namespace Reter.Infrastructure.EFCore.Blog.Repositories
         public void Add(Article entity)
         {
             _reterDbContext.Articles.Add(entity);
+            Save();
+        }
+
+        public void Save()
+        {
             _reterDbContext.SaveChanges();
         }
     }

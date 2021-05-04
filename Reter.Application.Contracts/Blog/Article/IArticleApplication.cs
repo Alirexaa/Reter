@@ -7,5 +7,7 @@ namespace Reter.Application.Contracts.Blog.Article
     {
         List<ArticleViewModel> GetList();
         void Create(CreateArticle command);
+        void Edit(EditArticle command);
+        EditArticle Get(string id);
     }
 }

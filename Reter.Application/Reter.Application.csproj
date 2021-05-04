@@ -10,4 +10,8 @@
     <ProjectReference Include="..\Reter.Domain\Reter.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Blog\Article\" />
+  </ItemGroup>
+
 </Project>

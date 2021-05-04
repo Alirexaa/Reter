@@ -19,7 +19,6 @@ namespace Reter.Infrastructure.EFCore.Mapping
             builder.Property(x => x.Image);
             builder.Property(x => x.IsDeleted);
             builder.Property(x => x.CreationTime);
-            builder.Property(x => x.ArticleCategory);
             builder.Property(x => x.ArticleCategoryId);
 
             builder.HasOne(x => x.ArticleCategory)

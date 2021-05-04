@@ -1,0 +1,58 @@
+﻿@page
+@model Reter.Presentation.MVCCore.Areas.Admin.Pages.Blog.ArticleManagement.CreateModel
+@{
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h2>Add New Article Category</h2>
+    </div>
+
+    <div class="card-header">
+        <div class="col-md-12">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label for="Title" class="control-label">Title:</label>
+                        <input class="form-control" name="Title" id="Title" />
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="ShortDescription" class="control-label">ShortDescription:</label>
+                        <input class="form-control" name="ShortDescription" id="ShortDescription" />
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="Image" class="control-label">Image:</label>
+                        <textarea class="form-control" name="Image" id="Image" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="Content" class="control-label">Content:</label>
+                        <textarea class="form-control" name="Content" id="Content" rows="7"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label for="ArticleCategoryId" class="control-label">Category:</label>
+                        <select id="ArticleCategoryId" name="ArticleCategoryId" asp-items="Model.ArticleCategories" class="form-control">
+                            <option value="">Select Article Category</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Add" class="btn btn-success" />
+                    <a class="btn btn-dark" asp-page="./List" asp-area="Admin">Back To List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

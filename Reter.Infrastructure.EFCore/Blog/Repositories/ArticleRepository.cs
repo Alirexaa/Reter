@@ -34,5 +34,11 @@ namespace Reter.Infrastructure.EFCore.Blog.Repositories
         {
             return _reterDbContext.Articles.FirstOrDefault(x => x.Id == id);
         }
+
+        public void Add(Article entity)
+        {
+            _reterDbContext.Articles.Add(entity);
+            _reterDbContext.SaveChanges();
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Reter.Domain.Blog.ArticleAgg
     {
         List<ArticleViewModel> GetList();
         Article Get(string id);
+        void Add(Article entity);
     }
 }

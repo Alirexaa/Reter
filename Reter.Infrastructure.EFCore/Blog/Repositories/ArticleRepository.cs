@@ -45,5 +45,10 @@ namespace Reter.Infrastructure.EFCore.Blog.Repositories
         {
             _reterDbContext.SaveChanges();
         }
+
+        public bool Exists(string title)
+        {
+            return _reterDbContext.Articles.Any(x => x.Title == title);
+        }
     }
 }

@@ -8,4 +8,8 @@
     <ProjectReference Include="..\Reter.Application.Contracts\Reter.Application.Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Blog\ArticleAgg\Services\" />
+  </ItemGroup>
+
 </Project>

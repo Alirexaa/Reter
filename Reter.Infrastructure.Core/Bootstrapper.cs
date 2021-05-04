@@ -9,6 +9,7 @@ using Reter.Infrastructure.EFCore.DbContexts;
 using Reter.Application.Blog.ArticleCategory;
 using Reter.Application.Contracts.Blog.Article;
 using Reter.Domain.Blog.ArticleAgg;
+using Reter.Domain.Blog.ArticleAgg.Services;
 using Reter.Domain.Blog.ArticleCategoryAgg.Services;
 
 namespace Reter.Infrastructure.Core
@@ -25,6 +26,7 @@ namespace Reter.Infrastructure.Core
 
             services.AddTransient<IArticleApplication, ArticleApplication>();
             services.AddTransient<IArticleRepository, ArticleRepository>();
+            services.AddScoped<IArticleValidatorService, ArticleValidatorService>();
         }
     }
     

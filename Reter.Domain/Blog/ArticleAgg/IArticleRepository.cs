@@ -9,5 +9,6 @@ namespace Reter.Domain.Blog.ArticleAgg
         Article Get(string id);
         void Add(Article entity);
         void Save();
+        bool Exists(string title);
     }
 }

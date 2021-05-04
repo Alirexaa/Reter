@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Reflection.Metadata.Ecma335;
+using Reter.Domain.Blog.ArticleAgg.Services;
 using Reter.Domain.Blog.ArticleCategoryAgg;
 
 namespace Reter.Domain.Blog.ArticleAgg
@@ -21,8 +22,10 @@ namespace Reter.Domain.Blog.ArticleAgg
             
         }
 
-        public Article(string title, string shortDescription, string content, string image, string articleCategoryId)
+        public Article(string title, string shortDescription, string content, string image, string articleCategoryId,IArticleValidatorService service)
         {
+            ValidateArgument(title, articleCategoryId);
+            service.CheckThatThisRecordAlreadyExists(title);
             Id = Guid.NewGuid().ToString();
             Title = title;
             ShortDescription = shortDescription;
@@ -33,8 +36,18 @@ namespace Reter.Domain.Blog.ArticleAgg
             CreationTime = DateTime.Now;
         }
 
+        private static void ValidateArgument(string title, string articleCategoryId)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+                throw new ArgumentException();
+            if (articleCategoryId == "0")
+                throw new ArgumentOutOfRangeException();
+        }
+
         public void Edit(string title,string shortDescription,string content, string image,string articleCategoryId)
         {
+            ValidateArgument(title, articleCategoryId);
+
             Title = title;
             ShortDescription = shortDescription;
             Content = content;

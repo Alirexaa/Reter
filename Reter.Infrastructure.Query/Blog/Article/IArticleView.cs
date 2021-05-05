@@ -5,6 +5,6 @@ namespace Reter.Infrastructure.Query.Blog.Article
     public interface IArticleView
     {
         List<ArticleQueryView> GetArticles();
-
+        ArticleQueryView GetArticle(string id);
     }
 }

@@ -28,5 +28,20 @@ namespace Reter.Infrastructure.Query.Blog.Article
                 })
                 .ToList();
         }
+
+        public ArticleQueryView GetArticle(string id)
+        {
+            return _reterDbContext.Articles.Include(x => x.ArticleCategory).Select(x => new ArticleQueryView()
+            {
+
+                Id = x.Id,
+                ArticleCategory = x.ArticleCategory.Title,
+                CreationTime = x.CreationTime.ToString(CultureInfo.InvariantCulture),
+                ShortDescription = x.ShortDescription,
+                Title = x.Title,
+                Image = x.Image,
+                Content = x.Content
+            }).FirstOrDefault(x=>x.Id==id);
+        }
     }
 }

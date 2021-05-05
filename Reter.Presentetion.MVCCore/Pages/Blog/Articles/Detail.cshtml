@@ -1,0 +1,146 @@
+﻿@page "{id}"
+@model Reter.Presentation.MVCCore.Pages.Blog.Article.DetailModel
+@{
+    var article = Model.Article;
+}
+
+<div class="our-blog blog-details pt-150 mb-200">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="single-blog-post">
+                    <div class="img-holder"><img src="@article.Image" alt="@article.Title" title="@article.Title"></div>
+                    <div class="post-data">
+                        <a href="#" class="date">@article.CreationTime</a>
+                        <h5 class="blog-title-two title">@article.Title</h5>
+                        <p class="title text-secondary">
+                            @article.ShortDescription
+                        </p>
+                        <div class="blog-text-style">
+                            @article.Content
+                        </div>
+                    </div> <!-- /.post-data -->
+                    <div class="post-tag-area d-md-flex justify-content-between align-items-center mb-80">
+                        <ul class="tags">
+                            <li>Tag:</li>
+                            <li><a href="#">Adventure,</a></li>
+                            <li><a href="#">Landscape,</a></li>
+                            <li><a href="#">Nature</a></li>
+                        </ul>
+                        <ul class="share-icon">
+                            <li>Share:</li>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div> <!-- /.post-tag-area -->
+
+                    <div class="user-comment-area pt-50">
+                        <h3 class="inner-block-title">2 Comments</h3>
+                        <div class="comment-wrapper">
+                            <div class="single-comment d-sm-flex align-items-top">
+                                <img src="images/blog/1.jpg" alt="" class="user-img">
+                                <div class="user-comment-data">
+                                    <h6 class="name">Rashed ka.</h6>
+                                    <div class="date">13 June, 2018, 7:30pm</div>
+                                    <p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in future. The same true we experience the emotional sensation.</p>
+                                    <button class="reply">Reply</button>
+                                </div> <!-- /.user-comment-data -->
+                            </div> <!-- /.single-comment -->
+                            <div class="single-comment comment-reply d-sm-flex align-items-top">
+                                <img src="images/blog/1.jpg" alt="" class="user-img">
+                                <div class="user-comment-data">
+                                    <h6 class="name">Rashed ka.</h6>
+                                    <div class="date">13 June, 2018, 7:30pm</div>
+                                    <p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in future. The same true sensation.</p>
+                                    <button class="reply">Reply</button>
+                                </div> <!-- /.user-comment-data -->
+                            </div> <!-- /.single-comment -->
+                            <div class="single-comment d-sm-flex align-items-top">
+                                <img src="images/blog/2.jpg" alt="" class="user-img">
+                                <div class="user-comment-data">
+                                    <h6 class="name">Zubayer hasan</h6>
+                                    <div class="date">12 June, 2018, 3:30pm</div>
+                                    <p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in future. The same true we experience the emotional sensation.</p>
+                                    <button class="reply">Reply</button>
+                                </div> <!-- /.user-comment-data -->
+                            </div> <!-- /.single-comment -->
+                        </div> <!-- /.comment-wrapper -->
+                    </div> <!-- /.user-comment-area -->
+
+                    <div class="comment-form-area pt-150">
+                        <h3 class="inner-block-title">Leave A Comment</h3>
+                        <p>Sing in to post your comment or singup if you dont have any account.</p>
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-md-6"><input type="text" placeholder="Your Name*"></div>
+                                <div class="col-md-6"><input type="email" placeholder="Your Email*"></div>
+                                <div class="col-12"><textarea placeholder="Your Comment*"></textarea></div>
+                            </div>
+                            <button class="theme-button-two">Post Comment</button>
+                        </form>
+                    </div> <!-- /.comment-form-area -->
+                </div> <!-- /.single-blog-post -->
+            </div> <!-- /.col- -->
+
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="theme-sidebar-widget">
+                    <div class="single-block mb-80">
+                        <form action="#" class="sidebar-search">
+                            <input type="text" placeholder="Search">
+                            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </form>
+                    </div> <!-- /.single-block -->
+                    <div class="single-block mb-80">
+                        <h4 class="sidebar-title">Categories</h4>
+                        <ul class="list-item blog-category">
+                            <li>
+                                <a href="#">Web Design <span>(09)</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Graphics <span>(13)</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Web Development <span>(05)</span></a>
+                            </li>
+                            <li>
+                                <a href="#">IOS/Android Development <span>(19)</span></a>
+                            </li>
+                            <li>
+                                <a href="#">Others <span>(12)</span></a>
+                            </li>
+                        </ul>
+                    </div> <!-- /.single-block -->
+                    <div class="single-block mb-80">
+                        <h4 class="sidebar-title">Recent News</h4>
+                        <ul class="recent-news-item">
+                            <li>
+                                <h6 class="rn-title"><a href="#">10 days quick challange for boost your online visitors.</a></h6>
+                                <div class="date">23 July, 2018</div>
+                            </li>
+                            <li>
+                                <h6 class="rn-title"><a href="#">10 days quick challange for boost your online visitors.</a></h6>
+                                <div class="date">23 July, 2018</div>
+                            </li>
+                            <li>
+                                <h6 class="rn-title"><a href="#">10 days quick challange for boost your online visitors.</a></h6>
+                                <div class="date">23 July, 2018</div>
+                            </li>
+                        </ul>
+                    </div> <!-- /.single-block -->
+                    <div class="single-block">
+                        <h4 class="sidebar-title">Keywords</h4>
+                        <ul class="keywords-tag clearfix">
+                            <li><a href="#">Ideas</a></li>
+                            <li><a href="#">Education</a></li>
+                            <li><a href="#">Design</a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#">Branding</a></li>
+                        </ul>
+                    </div> <!-- /.single-block -->
+                </div> <!-- /.theme-sidebar-widget -->
+            </div>
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</div>

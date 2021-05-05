@@ -8,5 +8,7 @@
         public string CreationTime { get; set; }
         public string ArticleCategory { get; set; }
         public string Image { get; set; }
+
+        public string Content { get; set; }
     }
 }

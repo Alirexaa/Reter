@@ -18,7 +18,7 @@
                         <a href="blog-details-full-grid.html">@article.Title</a>
                     </h5>
                     <p>@article.ShortDescription</p>
-                    <a href="blog-details-full-grid.html" class="read-more">
+                    <a asp-page="/blog/articles/detail" asp-route-id="@article.Id" class="read-more">
                         <i class="flaticon-back-1"></i>
                     </a>
                 </div>

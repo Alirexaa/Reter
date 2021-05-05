@@ -1,6 +1,51 @@
 ﻿@page
-@model IndexModel
+@model Reter.Presentation.MVCCore.Pages.IndexModel
 @{
-    ViewData["Title"] = "Home page";
 }
 
+
+<div class="our-blog blog-default pt-150 mb-200">
+    <div class="full-grid-container">
+        @foreach (var article in Model.Article)
+        {
+            <div class="single-blog-post">
+                <div class="img-holder">
+                    <img src="@article.Image" alt="@article.Title" title="@article.Title">
+                </div>
+                <div class="post-data">
+                    <a href="#" class="date">@article.CreationTime</a>
+                    <h5 class="blog-title-two title">
+                        <a href="blog-details-full-grid.html">@article.Title</a>
+                    </h5>
+                    <p>@article.ShortDescription</p>
+                    <a href="blog-details-full-grid.html" class="read-more">
+                        <i class="flaticon-back-1"></i>
+                    </a>
+                </div>
+            </div>
+        }
+
+
+        <div class="theme-pagination-one pt-15">
+            <ul>
+                <li class="active">
+                    <a href="#">1</a>
+                </li>
+                <li>
+                    <a href="#">2</a>
+                </li>
+                <li>
+                    <a href="#">3</a>
+                </li>
+                <li>
+                    <a href="#">4</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="flaticon-back-1"></i>
+                    </a>
+                </li>
+            </ul>
+        </div> <!-- /.theme-pagination-one -->
+    </div> <!-- /.full-grid-container -->
+</div>

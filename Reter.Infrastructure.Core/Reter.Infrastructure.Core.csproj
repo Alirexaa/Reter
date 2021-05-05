@@ -13,6 +13,7 @@
     <ProjectReference Include="..\Reter.Application\Reter.Application.csproj" />
     <ProjectReference Include="..\Reter.Domain\Reter.Domain.csproj" />
     <ProjectReference Include="..\Reter.Infrastructure.EFCore\Reter.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\Reter.Infrastructure.Query\Reter.Infrastructure.Query.csproj" />
   </ItemGroup>
 
 </Project>

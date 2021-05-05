@@ -3,16 +3,18 @@ using System.Globalization;
 using Reter.Application.Contracts.Blog.Article;
 using Reter.Application.Contracts.Blog.Article.Commands;
 using Reter.Domain.Blog.ArticleAgg;
+using Reter.Domain.Blog.ArticleAgg.Services;
 
 namespace Reter.Application.Blog.Article
 {
     public class ArticleApplication : IArticleApplication
     {
         private readonly IArticleRepository _articleRepository;
-
-        public ArticleApplication(IArticleRepository articleRepository)
+        private readonly IArticleValidatorService _articleValidatorService;
+        public ArticleApplication(IArticleRepository articleRepository,IArticleValidatorService articleValidatorService)
         {
             _articleRepository = articleRepository;
+            _articleValidatorService = articleValidatorService;
         }
 
         public List<ArticleViewModel> GetList()
@@ -23,7 +25,7 @@ namespace Reter.Application.Blog.Article
         public void Create(CreateArticle command)
         {
             var article = new Domain.Blog.ArticleAgg.Article(command.Title, command.ShortDescription, command.Content,
-                command.Image, command.ArticleCategoryId);
+                command.Image, command.ArticleCategoryId,_articleValidatorService);
             _articleRepository.Add(article);
         }
 

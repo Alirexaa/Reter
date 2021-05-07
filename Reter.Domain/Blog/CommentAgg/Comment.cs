@@ -30,6 +30,14 @@ namespace Reter.Domain.Blog.CommentAgg
             CreationTime = DateTime.Now;
         }
 
-        
+        public void Confirm()
+        {
+            Status = Statuses.Confirm;
+        }
+        public void Cancel()
+        {
+            Status = Statuses.Canceled;
+        }
+
     }
 }

@@ -1,0 +1,88 @@
+﻿@page
+@using Reter.Domain.Blog.CommentAgg
+@model Reter.Presentation.MVCCore.Areas.Admin.Pages.Blog.CommentManagement.ListModel
+@{
+    var id = Model.Comments.Count;
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="float-left">Comment List</h3>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Article</th>
+                    <th>Status</th>
+                    <th>CreationTime</th>
+                    <th>Operations</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var comment in Model.Comments)
+                {
+                    <tr>
+
+                        <th>@(id--)</th>
+                        <th>@comment.Name</th>
+                        <th>@comment.Email</th>
+                        <th><a asp-page="/blog/articles/detail" asp-route-id="@comment.ArticleId" > @comment.Article </a></th>
+                        <th>
+                            @if (comment.Status == Statuses.Canceled)
+                            {
+                                <i class="fa fa-2x fa-close text-danger"></i>
+                            }
+                            else if (comment.Status == Statuses.Confirm)
+                            {
+                                <i class="fa fa-2x fa-check text-success"></i>
+                            }
+                            else
+                            {
+                                <i class="fa fa-2x fa-eye-slash text-warning"></i>
+                            }
+                        </th>
+                        <th>@comment.CreationTime</th>
+                        <th>
+                            <a class="btn btn-outline-warning" asp-area="Admin" asp-page="./Edit" asp-route-id="@comment.Id">Show</a>
+                            @if (comment.Status == Statuses.New)
+                            {
+                                <form method="post" asp-page-handler="Confirm" class="float-left mx-2">
+                                    <button class="btn btn-outline-success">Confirm</button>
+                                    <input name="Id" type="hidden" value="@comment.Id" />
+                                </form>
+
+                                <form method="post" asp-page-handler="Remove" class="float-left mx-2">
+                                    <button class="btn btn-outline-danger ">Delete</button>
+                                    <input name="Id" type="hidden" value="@comment.Id" />
+                                </form>
+                            }
+                            else if (comment.Status == Statuses.Confirm)
+                            {
+                                <form method="post" asp-page-handler="Remove" class="float-left mx-2">
+                                    <button class="btn btn-outline-danger ">Delete</button>
+                                    <input name="Id" type="hidden" value="@comment.Id" />
+                                </form>
+                            }
+                            else
+                            {
+                                <form method="post" asp-page-handler="Confirm" class="float-left mx-2">
+                                    <button class="btn btn-outline-success">Confirm</button>
+                                    <input name="Id" type="hidden" value="@comment.Id" />
+                                </form>
+                            }
+                        </th>
+
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

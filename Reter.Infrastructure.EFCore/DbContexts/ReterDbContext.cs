@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Reter.Domain.Blog.ArticleAgg;
 using Reter.Domain.Blog.ArticleCategoryAgg;
+using Reter.Domain.Blog.CommentAgg;
 using Reter.Infrastructure.EFCore.Mapping.Blog;
 
 namespace Reter.Infrastructure.EFCore.DbContexts
@@ -9,6 +10,7 @@ namespace Reter.Infrastructure.EFCore.DbContexts
     {
         public DbSet<ArticleCategory> ArticleCategories { get; set; }
         public DbSet<Article> Articles { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         public ReterDbContext(DbContextOptions<ReterDbContext> opt) : base(opt)
         {

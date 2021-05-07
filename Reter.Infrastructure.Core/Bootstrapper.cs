@@ -7,10 +7,13 @@ using Reter.Domain.Blog.ArticleCategoryAgg;
 using Reter.Infrastructure.EFCore.Blog.Repositories;
 using Reter.Infrastructure.EFCore.DbContexts;
 using Reter.Application.Blog.ArticleCategory;
+using Reter.Application.Blog.Comment;
 using Reter.Application.Contracts.Blog.Article;
+using Reter.Application.Contracts.Blog.Comment;
 using Reter.Domain.Blog.ArticleAgg;
 using Reter.Domain.Blog.ArticleAgg.Services;
 using Reter.Domain.Blog.ArticleCategoryAgg.Services;
+using Reter.Domain.Blog.CommentAgg;
 using Reter.Infrastructure.Query.Blog.Article;
 
 namespace Reter.Infrastructure.Core
@@ -29,6 +32,9 @@ namespace Reter.Infrastructure.Core
             services.AddTransient<IArticleRepository, ArticleRepository>();
             services.AddScoped<IArticleValidatorService, ArticleValidatorService>();
             services.AddTransient<IArticleView, ArticleView>();
+
+            services.AddTransient<ICommentRepository, CommentRepository>();
+            services.AddTransient<ICommentApplication, CommentApplication>();
         }
     }
     

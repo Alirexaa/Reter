@@ -21,6 +21,7 @@ namespace Reter.Domain.Blog.CommentAgg
         }
         public Comment(string name, string email, string message, string articleId)
         {
+            Id = Guid.NewGuid().ToString();
             Name = name;
             Email = email;
             Message = message;

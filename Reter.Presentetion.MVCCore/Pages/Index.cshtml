@@ -13,14 +13,18 @@
                     <img src="@article.Image" alt="@article.Title" title="@article.Title">
                 </div>
                 <div class="post-data">
-                    <a href="#" class="date">@article.CreationTime</a>
+                    <a asp-page="/blog/articles/detail" asp-route-id="@article.Id" class="date">@article.CreationTime</a>
                     <h5 class="blog-title-two title">
-                        <a href="blog-details-full-grid.html">@article.Title</a>
+                        <a asp-page="/blog/articles/detail" asp-route-id="@article.Id">@article.Title</a>
                     </h5>
                     <p>@article.ShortDescription</p>
                     <a asp-page="/blog/articles/detail" asp-route-id="@article.Id" class="read-more">
                         <i class="flaticon-back-1"></i>
                     </a>
+                    <span>
+                        <i class="fa fa-comment"></i>
+                        @article.CommentCount
+                    </span>
                 </div>
             </div>
         }

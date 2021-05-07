@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Blog\Article\" />
+    <Folder Include="Blog\Comment\" />
   </ItemGroup>
 
   <ItemGroup>

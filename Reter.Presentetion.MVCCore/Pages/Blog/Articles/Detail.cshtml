@@ -38,35 +38,21 @@
                     </div> <!-- /.post-tag-area -->
 
                     <div class="user-comment-area pt-50">
-                        <h3 class="inner-block-title">2 Comments</h3>
+                        <h3 class="inner-block-title">@article.CommentCount Comments</h3>
                         <div class="comment-wrapper">
-                            <div class="single-comment d-sm-flex align-items-top">
-                                <img src="images/blog/1.jpg" alt="" class="user-img">
-                                <div class="user-comment-data">
-                                    <h6 class="name">Rashed ka.</h6>
-                                    <div class="date">13 June, 2018, 7:30pm</div>
-                                    <p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in future. The same true we experience the emotional sensation.</p>
-                                    <button class="reply">Reply</button>
-                                </div> <!-- /.user-comment-data -->
-                            </div> <!-- /.single-comment -->
-                            <div class="single-comment comment-reply d-sm-flex align-items-top">
-                                <img src="images/blog/1.jpg" alt="" class="user-img">
-                                <div class="user-comment-data">
-                                    <h6 class="name">Rashed ka.</h6>
-                                    <div class="date">13 June, 2018, 7:30pm</div>
-                                    <p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in future. The same true sensation.</p>
-                                    <button class="reply">Reply</button>
-                                </div> <!-- /.user-comment-data -->
-                            </div> <!-- /.single-comment -->
-                            <div class="single-comment d-sm-flex align-items-top">
-                                <img src="images/blog/2.jpg" alt="" class="user-img">
-                                <div class="user-comment-data">
-                                    <h6 class="name">Zubayer hasan</h6>
-                                    <div class="date">12 June, 2018, 3:30pm</div>
-                                    <p>One touch of a red-hot stove is usually all we need to avoid that kind of discomfort in future. The same true we experience the emotional sensation.</p>
-                                    <button class="reply">Reply</button>
-                                </div> <!-- /.user-comment-data -->
-                            </div> <!-- /.single-comment -->
+                            @foreach (var comment in article.Comments)
+                            {
+                                <div class="single-comment d-sm-flex align-items-top">
+                                    <img src="~/images/blog/1.jpg" alt="" class="user-img">
+                                    <div class="user-comment-data">
+                                        <h6 class="name">@comment.Name</h6>
+                                        <div class="date">@comment.CreationTime</div>
+                                        <p>@comment.Message</p>
+                                        <button class="reply">Reply</button>
+                                    </div> <!-- /.user-comment-data -->
+                                </div>
+                            }
+                            <!-- /.single-comment -->
                         </div> <!-- /.comment-wrapper -->
                     </div> <!-- /.user-comment-area -->
 

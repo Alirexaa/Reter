@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Public.Framwork\Public.Framework.csproj" />
     <ProjectReference Include="..\Reter.Application.Contracts\Reter.Application.Contracts.csproj" />
   </ItemGroup>
 

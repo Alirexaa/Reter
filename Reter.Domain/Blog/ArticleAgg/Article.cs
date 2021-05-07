@@ -2,21 +2,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
+using Public.Framework.Domain;
 using Reter.Domain.Blog.ArticleAgg.Services;
 using Reter.Domain.Blog.ArticleCategoryAgg;
 using Reter.Domain.Blog.CommentAgg;
 
 namespace Reter.Domain.Blog.ArticleAgg
 {
-    public class Article
+    public class Article:DomainBase<string>
     {
-        public string Id { get; private set; }
         public string Title { get; private set; }
         public string ShortDescription { get; private set; }
         public string Content { get; private set; }
         public string Image { get; private set; }
         public bool IsDeleted { get; private set; }
-        public DateTime CreationTime { get; private set; }
         public string ArticleCategoryId { get; private set; }
         public ArticleCategory ArticleCategory { get; private set; }
         public ICollection<Comment> Comments { get; private set; }
@@ -37,7 +36,6 @@ namespace Reter.Domain.Blog.ArticleAgg
             Image = image;
             ArticleCategoryId = articleCategoryId;
             IsDeleted = false;
-            CreationTime = DateTime.Now;
             Comments = new List<Comment>();
         }
 

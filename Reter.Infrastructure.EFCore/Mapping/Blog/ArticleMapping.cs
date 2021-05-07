@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Reter.Domain.Blog.ArticleAgg;
 
-namespace Reter.Infrastructure.EFCore.Mapping
+namespace Reter.Infrastructure.EFCore.Mapping.Blog
 {
     public class ArticleMapping : IEntityTypeConfiguration<Article>
     {
@@ -24,6 +24,10 @@ namespace Reter.Infrastructure.EFCore.Mapping
             builder.HasOne(x => x.ArticleCategory)
                 .WithMany(x => x.Articles)
                 .HasForeignKey(x => x.ArticleCategoryId);
+
+            builder.HasMany(x => x.Comments).
+                WithOne(x => x.Article).
+                HasForeignKey(x => x.ArticleId);
         }
     }
 }

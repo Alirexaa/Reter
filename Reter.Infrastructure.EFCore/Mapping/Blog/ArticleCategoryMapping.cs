@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Reter.Domain.Blog.ArticleCategoryAgg;
 
-namespace Reter.Infrastructure.EFCore.Mapping
+namespace Reter.Infrastructure.EFCore.Mapping.Blog
 {
     public class ArticleCategoryMapping : IEntityTypeConfiguration<ArticleCategory>
     {

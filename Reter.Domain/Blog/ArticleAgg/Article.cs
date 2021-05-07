@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 using Reter.Domain.Blog.ArticleAgg.Services;
 using Reter.Domain.Blog.ArticleCategoryAgg;
+using Reter.Domain.Blog.CommentAgg;
 
 namespace Reter.Domain.Blog.ArticleAgg
 {
@@ -16,6 +19,7 @@ namespace Reter.Domain.Blog.ArticleAgg
         public DateTime CreationTime { get; private set; }
         public string ArticleCategoryId { get; private set; }
         public ArticleCategory ArticleCategory { get; private set; }
+        public ICollection<Comment> Comments { get; private set; }
 
         protected Article()
         {
@@ -34,6 +38,7 @@ namespace Reter.Domain.Blog.ArticleAgg
             ArticleCategoryId = articleCategoryId;
             IsDeleted = false;
             CreationTime = DateTime.Now;
+            Comments = new List<Comment>();
         }
 
         private static void ValidateArgument(string title, string articleCategoryId)

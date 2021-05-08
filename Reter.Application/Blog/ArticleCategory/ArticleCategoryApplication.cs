@@ -46,7 +46,7 @@ namespace Reter.Application.Blog.ArticleCategory
         {
             var articleCategory =
                 new Domain.Blog.ArticleCategoryAgg.ArticleCategory(command.Title, command.Description,_articleCategoryValidatorService );
-            _articleCategoryRepository.Add(articleCategory);
+            _articleCategoryRepository.Create(articleCategory);
 
         }
 
@@ -54,7 +54,7 @@ namespace Reter.Application.Blog.ArticleCategory
         {
             var articleCategory = _articleCategoryRepository.Get(command.Id);
             articleCategory.Edit(command.Title,command.Description);
-            _articleCategoryRepository.Save();
+            //_articleCategoryRepository.Save();
         }
 
         public EditArticleCategory Get(string id)
@@ -72,14 +72,14 @@ namespace Reter.Application.Blog.ArticleCategory
         {
            var articleCategory =  _articleCategoryRepository.Get(id);
            articleCategory.Remove();
-           _articleCategoryRepository.Save();
+           //_articleCategoryRepository.Save();
         }
 
         public void Activate(string id)
         {
           var articleCategory=  _articleCategoryRepository.Get(id);
           articleCategory.Activate();
-          _articleCategoryRepository.Save(); 
+          //_articleCategoryRepository.Save(); 
         }
     }
 }

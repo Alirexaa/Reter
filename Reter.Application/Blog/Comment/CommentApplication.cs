@@ -20,7 +20,7 @@ namespace Reter.Application.Blog.Comment
         {
             var comment =
                 new Domain.Blog.CommentAgg.Comment(command.Name, command.Email, command.Message, command.ArticleId);
-            _commentRepository.CreateAndSave(comment);
+            _commentRepository.Create(comment);
         }
 
         public List<CommentViewModel> GetComments()
@@ -49,14 +49,14 @@ namespace Reter.Application.Blog.Comment
         {
             var comment = _commentRepository.Get(id);
             comment.Confirm();
-            _commentRepository.Save();
+            //_commentRepository.Save();
         }
 
         public void Delete(string id)
         {
             var comment = _commentRepository.Get(id);
             comment.Cancel();
-            _commentRepository.Save();
+            //_commentRepository.Save();
         }
     }
 }

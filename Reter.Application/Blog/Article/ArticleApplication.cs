@@ -19,14 +19,14 @@ namespace Reter.Application.Blog.Article
 
         public List<ArticleViewModel> GetList()
         {
-            return _articleRepository.GetList();
+            return _articleRepository.GetAll();
         }
 
         public void Create(CreateArticle command)
         {
             var article = new Domain.Blog.ArticleAgg.Article(command.Title, command.ShortDescription, command.Content,
                 command.Image, command.ArticleCategoryId,_articleValidatorService);
-            _articleRepository.Add(article);
+            _articleRepository.Create(article);
         }
 
         public void Edit(EditArticle command)
@@ -34,7 +34,7 @@ namespace Reter.Application.Blog.Article
             var article = _articleRepository.Get(command.Id);
             article.Edit(command.Title, command.ShortDescription, command.Content, command.Image,
                 command.ArticleCategoryId);
-            _articleRepository.Save();
+            //_articleRepository.Save();
         }
 
         public EditArticle Get(string id)
@@ -55,7 +55,7 @@ namespace Reter.Application.Blog.Article
         {
             var article = _articleRepository.Get(id);
             article.Delete();
-            _articleRepository.Save();
+            //_articleRepository.Save();
         }
 
         public void Activate(string id)
@@ -63,7 +63,7 @@ namespace Reter.Application.Blog.Article
 
             var article = _articleRepository.Get(id);
             article.Activate();
-            _articleRepository.Save();
+            //_articleRepository.Save();
         }
     }
 }

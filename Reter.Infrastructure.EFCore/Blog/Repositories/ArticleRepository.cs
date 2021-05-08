@@ -2,22 +2,23 @@
 using System.Globalization;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Public.Framework.Infrastructure;
 using Reter.Application.Contracts.Blog.Article;
 using Reter.Domain.Blog.ArticleAgg;
 using Reter.Infrastructure.EFCore.DbContexts;
 
 namespace Reter.Infrastructure.EFCore.Blog.Repositories
 {
-    public class ArticleRepository:IArticleRepository
+    public class ArticleRepository:BaseRepository<string,Article>, IArticleRepository
     {
         private readonly ReterDbContext _reterDbContext;
 
-        public ArticleRepository(ReterDbContext reterDbContext)
+        public ArticleRepository(ReterDbContext reterDbContext):base(reterDbContext)
         {
             _reterDbContext = reterDbContext;
         }
 
-        public List<ArticleViewModel> GetList()
+        public List<ArticleViewModel> GetAll()
         {
             return _reterDbContext.Articles.Include(x=>x.ArticleCategory).Select(x=> new ArticleViewModel()
             {
@@ -30,25 +31,5 @@ namespace Reter.Infrastructure.EFCore.Blog.Repositories
             }).ToList();
         }
 
-        public Article Get(string id)
-        {
-            return _reterDbContext.Articles.FirstOrDefault(x => x.Id == id);
-        }
-
-        public void Add(Article entity)
-        {
-            _reterDbContext.Articles.Add(entity);
-            Save();
-        }
-
-        public void Save()
-        {
-            _reterDbContext.SaveChanges();
-        }
-
-        public bool Exists(string title)
-        {
-            return _reterDbContext.Articles.Any(x => x.Title == title);
-        }
     }
 }

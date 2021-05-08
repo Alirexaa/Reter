@@ -2,7 +2,7 @@
 
 namespace Reter.Domain.Blog.ArticleAgg.Services
 {
-    public class ArticleValidatorService:IArticleValidatorService
+    public class ArticleValidatorService : IArticleValidatorService
     {
         private readonly IArticleRepository _articleRepository;
 
@@ -13,7 +13,7 @@ namespace Reter.Domain.Blog.ArticleAgg.Services
 
         public void CheckThatThisRecordAlreadyExists(string title)
         {
-            if (_articleRepository.Exists(title))
+            if (_articleRepository.Exists(x => x.Title == title))
                 throw new DuplicatedRecordException("this record already exists in database");
         }
     }

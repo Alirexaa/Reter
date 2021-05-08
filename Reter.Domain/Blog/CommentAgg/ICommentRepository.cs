@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
+using Public.Framework.Infrastructure;
 
 namespace Reter.Domain.Blog.CommentAgg
 {
-    public interface ICommentRepository
+    public interface ICommentRepository: IRepository<string, Comment>
     {
-        void CreateAndSave(Comment entity);
+
         List<Comment> GetAll();
-        Comment Get(string id);
-        void Save();
     }
 }

@@ -1,13 +1,9 @@
 ﻿using System.Collections.Generic;
+using Public.Framework.Infrastructure;
 
 namespace Reter.Domain.Blog.ArticleCategoryAgg
 {
-    public interface IArticleCategoryRepository
-    {
-        void Add(ArticleCategory entity);
-        List<ArticleCategory> GetAll();
-        ArticleCategory Get(string id);
-        void Save();
-        bool Exists(string title);
+    public interface IArticleCategoryRepository:IRepository<string,ArticleCategory>
+    { public List<ArticleCategory> GetAll();
     }
 }

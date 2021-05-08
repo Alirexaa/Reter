@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using Public.Framework.Infrastructure;
 using Reter.Application.Contracts.Blog.ArticleCategory;
 using Reter.Application.Contracts.Blog.Comment;
 using Reter.Application.Contracts.Blog.Comment.Commands;
@@ -10,17 +11,20 @@ namespace Reter.Application.Blog.Comment
     public class CommentApplication : ICommentApplication
     {
         private readonly ICommentRepository _commentRepository;
-
-        public CommentApplication(ICommentRepository commentRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public CommentApplication(ICommentRepository commentRepository, IUnitOfWork unitOfWork)
         {
             _commentRepository = commentRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public void Add(AddComment command)
         {
+            _unitOfWork.BeginTran();
             var comment =
                 new Domain.Blog.CommentAgg.Comment(command.Name, command.Email, command.Message, command.ArticleId);
             _commentRepository.Create(comment);
+            _unitOfWork.CommitTran();
         }
 
         public List<CommentViewModel> GetComments()
@@ -47,16 +51,18 @@ namespace Reter.Application.Blog.Comment
 
         public void Confirm(string id)
         {
+            _unitOfWork.BeginTran();
             var comment = _commentRepository.Get(id);
             comment.Confirm();
-            //_commentRepository.Save();
+            _unitOfWork.CommitTran();
         }
 
         public void Delete(string id)
         {
+            _unitOfWork.BeginTran();
             var comment = _commentRepository.Get(id);
             comment.Cancel();
-            //_commentRepository.Save();
+           _unitOfWork.CommitTran();
         }
     }
 }

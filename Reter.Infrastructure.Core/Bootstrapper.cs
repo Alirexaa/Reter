@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Public.Framework.Infrastructure;
 using Reter.Application.Blog.Article;
 using Reter.Application.Contracts.Blog.ArticleCategory;
 using Reter.Domain.Blog.ArticleCategoryAgg;
@@ -35,6 +36,9 @@ namespace Reter.Infrastructure.Core
 
             services.AddTransient<ICommentRepository, CommentRepository>();
             services.AddTransient<ICommentApplication, CommentApplication>();
+
+
+            services.AddTransient<IUnitOfWork,UnitOfWorkEf<ReterDbContext>>();
         }
     }
     

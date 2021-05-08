@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using Public.Framework.Infrastructure;
 using Reter.Application.Contracts.Blog;
 using Reter.Application.Contracts.Blog.ArticleCategory;
 using Reter.Application.Contracts.Blog.ArticleCategory.Commands;
@@ -8,18 +9,19 @@ using Reter.Domain.Blog.ArticleCategoryAgg.Services;
 
 namespace Reter.Application.Blog.ArticleCategory
 {
-    public class ArticleCategoryApplication:IArticleCategoryApplication
+    public class ArticleCategoryApplication : IArticleCategoryApplication
     {
         private readonly IArticleCategoryRepository _articleCategoryRepository;
         private readonly IArticleCategoryValidatorService _articleCategoryValidatorService;
-
-        public ArticleCategoryApplication(IArticleCategoryRepository articleCategoryRepository, IArticleCategoryValidatorService articleCategoryValidatorService)
+        private readonly IUnitOfWork _unitOfWork;
+        public ArticleCategoryApplication(IArticleCategoryRepository articleCategoryRepository, IArticleCategoryValidatorService articleCategoryValidatorService, IUnitOfWork unitOfWork)
         {
             _articleCategoryRepository = articleCategoryRepository;
             _articleCategoryValidatorService = articleCategoryValidatorService;
+            _unitOfWork = unitOfWork;
         }
 
-        
+
 
         public List<ArticleCategoryViewModel> List()
         {
@@ -44,17 +46,19 @@ namespace Reter.Application.Blog.ArticleCategory
 
         public void Add(CreateArticleCategory command)
         {
+            _unitOfWork.BeginTran();
             var articleCategory =
-                new Domain.Blog.ArticleCategoryAgg.ArticleCategory(command.Title, command.Description,_articleCategoryValidatorService );
+                new Domain.Blog.ArticleCategoryAgg.ArticleCategory(command.Title, command.Description, _articleCategoryValidatorService);
             _articleCategoryRepository.Create(articleCategory);
-
+            _unitOfWork.CommitTran();
         }
 
         public void Edit(EditArticleCategory command)
         {
+            _unitOfWork.BeginTran();
             var articleCategory = _articleCategoryRepository.Get(command.Id);
-            articleCategory.Edit(command.Title,command.Description);
-            //_articleCategoryRepository.Save();
+            articleCategory.Edit(command.Title, command.Description);
+            _unitOfWork.CommitTran();
         }
 
         public EditArticleCategory Get(string id)
@@ -70,16 +74,18 @@ namespace Reter.Application.Blog.ArticleCategory
 
         public void Remove(string id)
         {
-           var articleCategory =  _articleCategoryRepository.Get(id);
-           articleCategory.Remove();
-           //_articleCategoryRepository.Save();
+            _unitOfWork.BeginTran();
+            var articleCategory = _articleCategoryRepository.Get(id);
+            articleCategory.Remove();
+            _unitOfWork.CommitTran();
         }
 
         public void Activate(string id)
         {
-          var articleCategory=  _articleCategoryRepository.Get(id);
-          articleCategory.Activate();
-          //_articleCategoryRepository.Save(); 
+            _unitOfWork.BeginTran();
+            var articleCategory = _articleCategoryRepository.Get(id);
+            articleCategory.Activate();
+            _unitOfWork.CommitTran();
         }
     }
 }

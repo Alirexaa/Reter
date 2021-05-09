@@ -11,10 +11,15 @@ using Reter.Application.Blog.ArticleCategory;
 using Reter.Application.Blog.Comment;
 using Reter.Application.Contracts.Blog.Article;
 using Reter.Application.Contracts.Blog.Comment;
+using Reter.Application.Contracts.User;
+using Reter.Application.Helper;
+using Reter.Application.User;
 using Reter.Domain.Blog.ArticleAgg;
 using Reter.Domain.Blog.ArticleAgg.Services;
 using Reter.Domain.Blog.ArticleCategoryAgg.Services;
 using Reter.Domain.Blog.CommentAgg;
+using Reter.Domain.UserAgg;
+using Reter.Infrastructure.EFCore.User.Repositories;
 using Reter.Infrastructure.Query.Blog.Article;
 
 namespace Reter.Infrastructure.Core
@@ -39,6 +44,13 @@ namespace Reter.Infrastructure.Core
 
 
             services.AddTransient<IUnitOfWork,UnitOfWorkEf<ReterDbContext>>();
+
+
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IUserApplication, UserApplication>();
+
+
+            services.AddAutoMapper(expression => expression.AddProfile(new AutoMapperProfiles()));
         }
     }
     

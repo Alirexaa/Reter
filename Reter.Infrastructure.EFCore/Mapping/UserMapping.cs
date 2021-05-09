@@ -19,6 +19,8 @@ namespace Reter.Infrastructure.EFCore.Mapping
             builder.Property(p => p.Phone);
             builder.Property(p => p.Status);
             builder.Property(p => p.CreationTime);
+            builder.Property(p => p.PasswordHash);
+            builder.Property(p => p.PasswordSalt);
         }
     }
 }

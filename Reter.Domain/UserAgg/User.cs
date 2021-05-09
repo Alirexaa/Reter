@@ -1,5 +1,6 @@
 ﻿using System;
 using Public.Framework.Domain;
+using Reter.Domain.UserAgg.Services;
 
 namespace Reter.Domain.UserAgg
 {
@@ -12,13 +13,18 @@ namespace Reter.Domain.UserAgg
         public string UserName { get; private set; }
         public string Email { get; private set; }
         public int Status  { get; private set; }
-        public string PasswordHash { get; private set; }
+        public byte[] PasswordHash { get; private set; }
+        public byte[] PasswordSalt { get; private set; }
 
+
+
+
+        
         protected  User()
         {
             
         }
-        public User(string firstName, string lastName, string phone, string userName, string email, string passwordHash)
+        public User(string firstName, string lastName, string phone, string userName, string email, string password,IHashPasswordService hashPasswordService)
         {
             Id = Guid.NewGuid().ToString();
             Status = Statuses.New;
@@ -27,7 +33,9 @@ namespace Reter.Domain.UserAgg
             Phone = phone;
             UserName = userName;
             Email = email;
-            PasswordHash = passwordHash;
+            var cryptoPassword = hashPasswordService.CreateHash(password);
+            PasswordSalt = cryptoPassword.PasswordSalt;
+            PasswordHash = cryptoPassword.PasswordHash;
         }
 
         public void Active()

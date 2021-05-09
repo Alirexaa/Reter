@@ -19,6 +19,7 @@ using Reter.Domain.Blog.ArticleAgg.Services;
 using Reter.Domain.Blog.ArticleCategoryAgg.Services;
 using Reter.Domain.Blog.CommentAgg;
 using Reter.Domain.UserAgg;
+using Reter.Domain.UserAgg.Services;
 using Reter.Infrastructure.EFCore.User.Repositories;
 using Reter.Infrastructure.Query.Blog.Article;
 
@@ -51,6 +52,8 @@ namespace Reter.Infrastructure.Core
 
 
             services.AddAutoMapper(expression => expression.AddProfile(new AutoMapperProfiles()));
+
+            services.AddScoped<IHashPasswordService, HashPasswordService>();
         }
     }
     

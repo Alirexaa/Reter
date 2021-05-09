@@ -27,6 +27,11 @@ namespace Public.Framework.Infrastructure
           return  _context.Find<T>(id);
         }
 
+        public T Get(Expression<Func<T, bool>> expression)
+        {
+            return _context.Set<T>().FirstOrDefault(expression);
+        }
+
         public bool Exists(Expression<Func<T, bool>> expression)
         {
            return _context.Set<T>().Any(expression);

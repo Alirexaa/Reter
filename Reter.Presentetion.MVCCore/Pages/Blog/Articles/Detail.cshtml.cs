@@ -1,15 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Reter.Application.Contracts.Blog.Comment;
 using Reter.Application.Contracts.Blog.Comment.Commands;
-using Reter.Domain.Blog.CommentAgg;
 using Reter.Infrastructure.Query.Blog.Article;
 
-namespace Reter.Presentation.MVCCore.Pages.Blog.Article
+namespace Reter.Presentation.MVCCore.Pages.Blog.Articles
 {
     public class DetailModel : PageModel
     {

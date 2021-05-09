@@ -1,0 +1,45 @@
+﻿@page
+@model Reter.Presentation.MVCCore.Pages.Login.IndexModel
+@{
+}
+
+
+<div class="signUp-page signUp-minimal pt-50 pb-100">
+    <div class="shape-wrapper">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div> <!-- /.shape-wrapper -->
+    <div class="signin-form-wrapper">
+        <div class="title-area text-center">
+            <h3>Login.</h3>
+        </div> <!-- /.title-area -->
+        <form method="post" id="login-form">
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="email" name="Email" required>
+                        <label>Email</label>
+                    </div> <!-- /.input-group -->
+                </div> <!-- /.col- -->
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="password" name="Password" required>
+                        <label>Password</label>
+                    </div> <!-- /.input-group -->
+                </div> <!-- /.col- -->
+            </div> <!-- /.row -->
+            <div class="agreement-checkbox d-flex justify-content-between align-items-center">
+                <div>
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember Me</label>
+                </div>
+                <a href="#">Forget Password?</a>
+            </div>
+            <button class="line-button-one" type="submit">Login</button>
+        </form>
+        <p class="signUp-text text-center">Don’t have any account? <a href="sign-up-minimal.html">Sign up</a> now.</p>
+    </div> <!-- /.sign-up-form-wrapper -->
+</div>

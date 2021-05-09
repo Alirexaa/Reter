@@ -9,6 +9,7 @@ namespace Public.Framework.Infrastructure
     {
         void Create(T entity);
         T Get(TKey id);
+        T Get(Expression<Func<T, bool>> expression);
         bool Exists(Expression<Func<T,bool>> expression);
     }
 }

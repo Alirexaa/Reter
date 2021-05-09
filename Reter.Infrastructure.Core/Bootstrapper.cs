@@ -54,6 +54,7 @@ namespace Reter.Infrastructure.Core
             services.AddAutoMapper(expression => expression.AddProfile(new AutoMapperProfiles()));
 
             services.AddScoped<IHashPasswordService, HashPasswordService>();
+            services.AddScoped<IAuthService, AuthService>();
         }
     }
     

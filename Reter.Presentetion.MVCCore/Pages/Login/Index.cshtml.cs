@@ -7,11 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Reter.Application.Contracts.User;
 using Reter.Application.Contracts.User.Commands;
 
-namespace Reter.Presentation.MVCCore.Pages.Register
+namespace Reter.Presentation.MVCCore.Pages.Login
 {
-    public  class IndexModel : PageModel
+    public class IndexModel : PageModel
     {
+
         private readonly IUserApplication _userApplication;
+
 
         public IndexModel(IUserApplication userApplication)
         {
@@ -22,10 +24,13 @@ namespace Reter.Presentation.MVCCore.Pages.Register
         {
         }
 
-        public void OnPost(RegisterUser command)
+        public ActionResult OnPost(LoginUserCommand command)
         {
-            _userApplication.Register(command);
+            var loginResult = _userApplication.Login(command);
+            if (!loginResult.IsLogged)
+                return RedirectToPage("./Login");
+            Response.Cookies.Append("userName", loginResult.UserViewModel.UserName);
+            return LocalRedirect("/Admin/Blog/CommentManagement/List");
         }
-        
     }
 }

@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reter.Presentation.MVCCore"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Reter.Infrastructure.Query", "Reter.Infrastructure.Query\Reter.Infrastructure.Query.csproj", "{56B784FA-0839-4F85-93A4-64008DFC11A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Public.Framework", "Public.Framework\Public.Framework.csproj", "{74782588-D7E1-477C-8E61-C93893AACA8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Public.Framework", "Public.Framework\Public.Framework.csproj", "{74782588-D7E1-477C-8E61-C93893AACA8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

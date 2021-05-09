@@ -22,7 +22,8 @@ namespace Reter.Application.User
         public void Register(RegisterUser command)
         {
             _unitOfWork.BeginTran();
-            var user = _mapper.Map<Domain.UserAgg.User>(command);
+            var user = new Domain.UserAgg.User(command.FirstName, command.LastName, command.Phone, command.UserName,
+                command.Email,command.Password);
             _userRepository.Create(user);
             _unitOfWork.CommitTran();
         }

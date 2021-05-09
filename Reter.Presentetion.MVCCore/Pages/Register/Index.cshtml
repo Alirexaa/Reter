@@ -1,0 +1,54 @@
+﻿@page
+@model Reter.Presentation.MVCCore.Pages.Login.IndexModel
+@{
+}
+
+<div class="signUp-page signUp-minimal pt-50 pb-100">
+    <div class="shape-wrapper">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div> <!-- /.shape-wrapper -->
+    <div class="sign-up-form-wrapper">
+        <div class="title-area text-center">
+            <h3>Register Now!</h3>
+            <p>You can signup with you social account below</p>
+        </div> <!-- /.title-area -->
+        <ul class="social-icon-wrapper row">
+            <li class="col-6"><a href="#" class="gmail"><i class="fa fa-envelope-o" aria-hidden="true"></i> Gmail</a></li>
+            <li class="col-6"><a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i> Facebook</a></li>
+        </ul>
+        <p class="or-text"><span>or</span></p>
+        <form  method="post" id="signUp-form">
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="text"  name="UserName" required>
+                        <label>Username</label>
+                    </div> <!-- /.input-group -->
+                </div> <!-- /.col- -->
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="email" name="Email" required>
+                        <label>Email</label>
+                    </div> <!-- /.input-group -->
+                </div> <!-- /.col- -->
+                <div class="col-12">
+                    <div class="input-group">
+                        <input type="password" name="Password" required>
+                        <label>Password</label>
+                    </div> <!-- /.input-group -->
+                </div> <!-- /.col- -->
+                <div class="col-12">
+                </div> <!-- /.col- -->
+            </div> <!-- /.row -->
+            <div class="agreement-checkbox">
+                <input type="checkbox" id="agreement">
+                <label for="agreement">I agree to the terms and policy from the rogan inc.</label>
+            </div>
+            <button class="line-button-one" type="submit">Signup</button>
+        </form>
+    </div> <!-- /.sign-up-form-wrapper -->
+</div> 

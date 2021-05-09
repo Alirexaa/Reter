@@ -12,7 +12,13 @@ namespace Reter.Domain.UserAgg
         public string UserName { get; private set; }
         public string Email { get; private set; }
         public int Status  { get; private set; }
-        public User(string firstName, string lastName, string phone, string userName, string email)
+        public string PasswordHash { get; private set; }
+
+        protected  User()
+        {
+            
+        }
+        public User(string firstName, string lastName, string phone, string userName, string email, string passwordHash)
         {
             Id = Guid.NewGuid().ToString();
             Status = Statuses.New;
@@ -21,6 +27,7 @@ namespace Reter.Domain.UserAgg
             Phone = phone;
             UserName = userName;
             Email = email;
+            PasswordHash = passwordHash;
         }
 
         public void Active()

@@ -2,6 +2,7 @@
 using Reter.Domain.Blog.ArticleAgg;
 using Reter.Domain.Blog.ArticleCategoryAgg;
 using Reter.Domain.Blog.CommentAgg;
+using Reter.Infrastructure.EFCore.Mapping;
 using Reter.Infrastructure.EFCore.Mapping.Blog;
 
 namespace Reter.Infrastructure.EFCore.DbContexts
@@ -21,6 +22,8 @@ namespace Reter.Infrastructure.EFCore.DbContexts
         {
             var assembly = typeof(ArticleMapping).Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assembly);
+
+            modelBuilder.ApplyConfiguration(new UserMapping());
 
 
             //modelBuilder.ApplyConfiguration(new ArticleCategoryMapping());

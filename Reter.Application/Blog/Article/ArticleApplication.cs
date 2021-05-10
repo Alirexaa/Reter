@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using Public.Framework.Infrastructure;
 using Reter.Application.Contracts.Blog.Article;
@@ -73,5 +74,39 @@ namespace Reter.Application.Blog.Article
             article.Activate();
             _unitOfWork.CommitTran();
         }
+
+        #region dispose
+
+        private bool _disposed = false;
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+            {
+                return;
+            }
+            if (disposing)
+            {
+                // TODO: dispose managed state(managed object)
+                
+            }
+
+
+            // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
+            // TODO: set large fields to null
+            _disposed = true;
+        }
+
+        ~ArticleApplication() => Dispose(false);
+
+
+
+
+        #endregion
     }
 }

@@ -5,7 +5,7 @@ using Public.Framework.Domain;
 
 namespace Public.Framework.Infrastructure
 {
-    public interface IRepository<in TKey,T> where T : DomainBase<TKey>
+    public interface IRepository<in TKey,T> : IDisposable where T : DomainBase<TKey>
     {
         void Create(T entity);
         T Get(TKey id);

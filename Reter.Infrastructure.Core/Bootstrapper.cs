@@ -31,23 +31,23 @@ namespace Reter.Infrastructure.Core
         {
 
             services.AddTransient<IArticleCategoryApplication, ArticleCategoryApplication>();
-            services.AddTransient<IArticleCategoryRepository, ArticleCategoryRepository>();
+            services.AddScoped<IArticleCategoryRepository, ArticleCategoryRepository>();
             services.AddDbContext<ReterDbContext>(opt => opt.UseSqlServer(connectionString));
             services.AddScoped<IArticleCategoryValidatorService, ArticleCategoryValidatorService>();
 
             services.AddTransient<IArticleApplication, ArticleApplication>();
-            services.AddTransient<IArticleRepository, ArticleRepository>();
+            services.AddScoped<IArticleRepository, ArticleRepository>();
             services.AddScoped<IArticleValidatorService, ArticleValidatorService>();
-            services.AddTransient<IArticleView, ArticleView>();
+            services.AddScoped<IArticleView, ArticleView>();
 
-            services.AddTransient<ICommentRepository, CommentRepository>();
+            services.AddScoped<ICommentRepository, CommentRepository>();
             services.AddTransient<ICommentApplication, CommentApplication>();
 
 
-            services.AddTransient<IUnitOfWork,UnitOfWorkEf<ReterDbContext>>();
+            services.AddScoped<IUnitOfWork,UnitOfWorkEf<ReterDbContext>>();
 
 
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             services.AddTransient<IUserApplication, UserApplication>();
 
 
